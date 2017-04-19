@@ -32,7 +32,7 @@
   <platform name="android"> 
     <config-file parent="/*" target="res/xml/config.xml"> 
       <feature name="AMapNavi"> 
-        <param name="android-package" value="com.github.starwander.amap.AMapNavigation"/> 
+        <param name="android-package" value="com.github.starwander.amap.navigation.AMapNavigation"/> 
       </feature>  
       <preference name="iflytekappid" value="$IFLYTEKAPPID"/> 
     </config-file>  
@@ -58,10 +58,10 @@
       <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROIDAMAPKEY"/> 
     </config-file>  
     <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
-      <activity android:name="com.github.starwander.amap.AmapActivity"/> 
+      <activity android:name="com.github.starwander.amap.service.AmapActivity"/> 
     </config-file>  
-    <source-file src="src/android/AMapNavi.java" target-dir="src/com/github/starwander/amap/AMapNavi"/>  
-    <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/AMapActivity"/>  
+    <source-file src="src/android/AMapNavi.java" target-dir="src/com/github/starwander/amap/navigation"/>  
+    <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/service"/>  
     <source-file src="src/android/libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_20170410.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/Msc.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/Sunflower.jar" target-dir="libs"/>  
