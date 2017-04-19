@@ -10,9 +10,9 @@
     <clobbers target="cordova.plugins.AMapNavi"/> 
   </js-module>  
   <preference name="ANDROIDAMAPKEY" default="pass"/>  
-  <preference name="IOSAMAPKEY" default="pass"/>  
+  <!--<preference name="IOSAMAPKEY" default="pass"/>  -->
   <preference name="IFLYTEKAPPID" default="pass"/>  
-  <platform name="ios"> 
+  <!--<platform name="ios"> 
     <config-file parent="/*" target="config.xml"> 
       <feature name="AMapNavi"> 
         <param name="ios-package" value="AMapNavi"/> 
@@ -28,7 +28,7 @@
     <framework src="AddressBook.framework"/>  
     <framework src="libz.dylib"/>  
     <framework src="libstdc++.6.0.9.dylib"/> 
-  </platform>  
+  </platform>  -->
   <platform name="android"> 
     <config-file parent="/*" target="res/xml/config.xml"> 
       <feature name="AMapNavi"> 
