@@ -15,11 +15,11 @@ import android.util.Log;
 
 import com.amap.api.navi.model.NaviLatLng;
 
-import com.github.starwander.amap.service.AMapActivity;
+import com.github.starwander.amap.activity.AMapActivity;
 
-public class AMapNavi extends CordovaPlugin {
+public class AMapNavigation extends CordovaPlugin {
     private CallbackContext callbackContext;
-    private static AMapNavi mapNavigation = null;
+    private static AMapNavigation mapNavigation = null;
     public static CordovaWebView cordovaWebView = null;
 
     @Override
@@ -31,7 +31,7 @@ public class AMapNavi extends CordovaPlugin {
             mapNavigation = this;
             this.callbackContext = callbackContext;
             Intent intent = new Intent();
-            intent.setClass(this.cordova.getActivity().getApplicationContext(), NavigationActivity.class);
+            intent.setClass(this.cordova.getActivity().getApplicationContext(), AMapActivity.class);
             Log.i("result", args.getString(0));
             Log.i("result", args.getString(1));
             Log.i("result", args.getString(2));

@@ -1,4 +1,4 @@
-package com.github.starwander.amap.service;
+package com.github.starwander.amap.activity;
 
 import java.util.ArrayList;
 
@@ -13,17 +13,19 @@ import com.amap.api.navi.AMapNavi;
 import com.amap.api.navi.AMapNaviListener;
 import com.amap.api.navi.AMapNaviView;
 import com.amap.api.navi.AMapNaviViewListener;
+import com.amap.api.navi.enums.PathPlanningStrategy;
 import com.amap.api.navi.model.AMapLaneInfo;
 import com.amap.api.navi.model.AMapNaviCross;
 import com.amap.api.navi.model.AMapNaviInfo;
 import com.amap.api.navi.model.AMapNaviLocation;
 import com.amap.api.navi.model.AMapNaviTrafficFacilityInfo;
+import com.amap.api.navi.model.AMapNaviCameraInfo;
+import com.amap.api.navi.model.AMapServiceAreaInfo;
 import com.amap.api.navi.model.AimLessModeCongestionInfo;
 import com.amap.api.navi.model.AimLessModeStat;
 import com.amap.api.navi.model.NaviInfo;
 import com.amap.api.navi.model.NaviLatLng;
 
-import com.autonavi.tbt.NaviStaticInfo;
 import com.autonavi.tbt.TrafficFacilityInfo;
 
 import com.iflytek.cloud.SpeechConstant;
@@ -32,9 +34,9 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.cloud.SpeechUtility;
 
-import com.github.starwander.amap.navigation.AMapNavi;
+import com.github.starwander.amap.navigation.AMapNavigation;
 
-public class AMapNaviService extends Activity implements AMapNaviListener, AMapNaviViewListener {
+public class AMapActivity extends Activity implements AMapNaviListener, AMapNaviViewListener {
     //导航View
     private AMapNaviView mAmapAMapNaviView;
     //是否为模拟导航
@@ -91,7 +93,7 @@ public class AMapNaviService extends Activity implements AMapNaviListener, AMapN
         mEndPoints.add(mNaviEnd);
         mAmapAMapNaviView.onCreate(savedInstanceState);
         mAmapAMapNaviView.setAMapNaviViewListener(this);
-        AMapNavi.getInstance(this).calculateDriveRoute(mStartPoints, mEndPoints, null, AMapNavi.DrivingDefault);
+        AMapNavi.getInstance(this).calculateDriveRoute(mStartPoints, mEndPoints, null, PathPlanningStrategy.DRIVING_AVOID_CONGESTION);
         Log.i("result", "注册");
 
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "="
@@ -174,17 +176,6 @@ public class AMapNaviService extends Activity implements AMapNaviListener, AMapN
     }
 
     @Override
-    public void onArriveDestination() {
-        // TODO Auto-generated method stub
-        mSpeechSynthesizer.startSpeaking("到达目的地", mTtsListener);
-    }
-
-    @Override
-    public void onArriveDestination(NaviStaticInfo naviStaticInfo) {
-
-    }
-
-    @Override
     public void onArrivedWayPoint(int arg0) {
         // TODO Auto-generated method stub
 
@@ -251,6 +242,30 @@ public class AMapNaviService extends Activity implements AMapNaviListener, AMapN
 
     @Override
     public void onTrafficStatusUpdate() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onServiceAreaUpdate(AMapServiceAreaInfo[] infoArray) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void updateCameraInfo(AMapNaviCameraInfo[] infoArray) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onPlayRing(int type) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onArriveDestination() {
         // TODO Auto-generated method stub
 
     }

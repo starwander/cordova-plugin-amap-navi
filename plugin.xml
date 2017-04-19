@@ -19,7 +19,7 @@
       </feature>  
       <preference name="amapapikey" value="$IOSAMAPKEY"/> 
     </config-file>  
-    <source-file src="src/ios/AMapNavi.m"/>  
+    <source-file src="src/ios/AMapNavigation.m"/>  
     <resource-file src="src/ios/AMap.bundle"/>  
     <resource-file src="src/ios/AMapNavi.bundle"/>  
     <framework src="src/ios/AMapNaviKit.framework" custom="true"/>  
@@ -58,13 +58,12 @@
       <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROIDAMAPKEY"/> 
     </config-file>  
     <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
-      <activity android:name="com.github.starwander.amap.service.AmapActivity"/> 
+      <activity android:name="com.github.starwander.amap.activity.AmapActivity"/> 
     </config-file>  
-    <source-file src="src/android/AMapNavi.java" target-dir="src/com/github/starwander/amap/navigation"/>  
+    <source-file src="src/android/AMapNavigation.java" target-dir="src/com/github/starwander/amap/navigation"/>  
     <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/service"/>  
     <source-file src="src/android/libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_20170410.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/Msc.jar" target-dir="libs"/>  
-    <source-file src="src/android/libs/Sunflower.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/arm64-v8a/libGNaviData.so" target-dir="libs/arm64-v8a"/>  
     <source-file src="src/android/libs/arm64-v8a/libGNaviGuide.so" target-dir="libs/arm64-v8a"/>  
     <source-file src="src/android/libs/arm64-v8a/libGNaviMap.so" target-dir="libs/arm64-v8a"/>  
