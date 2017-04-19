@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-amap-navi" version="0.0.1">  
+  <name>AMapNavi</name>  
+  <description>Cordova AMap Navigation Plugin</description>  
+  <author email="zhuangwj@gmail.com" href="https://github.com/starwander/cordova-plugin-amap-navi">Ethan Zhuang</author>  
+  <license>Apache 2.0</license>  
+  <keywords>Cordova, Plugin, AMap, Navigation</keywords>  
+  <js-module name="AMapNavi" src="www/AMapNavi.js"> 
+    <clobbers target="cordova.plugins.AMapNavi"/> 
+  </js-module>  
+  <preference name="ANDROIDAMAPKEY" default="pass"/>  
+  <preference name="IOSAMAPKEY" default="pass"/>  
+  <preference name="IFLYTEKAPPID" default="pass"/>  
+  <platform name="ios"> 
+    <config-file parent="/*" target="config.xml"> 
+      <feature name="AMapNavi"> 
+        <param name="ios-package" value="AMapNavi"/> 
+      </feature>  
+      <preference name="amapapikey" value="$IOSAMAPKEY"/> 
+    </config-file>  
+    <source-file src="src/ios/AMapNavi.m"/>  
+    <resource-file src="src/ios/AMap.bundle"/>  
+    <resource-file src="src/ios/AMapNavi.bundle"/>  
+    <framework src="src/ios/AMapNaviKit.framework" custom="true"/>  
+    <framework src="AudioToolbox.framework"/>  
+    <framework src="AVFoundation.framework"/>  
+    <framework src="AddressBook.framework"/>  
+    <framework src="libz.dylib"/>  
+    <framework src="libstdc++.6.0.9.dylib"/> 
+  </platform>  
+  <platform name="android"> 
+    <config-file parent="/*" target="res/xml/config.xml"> 
+      <feature name="AMapNavi"> 
+        <param name="android-package" value="com.github.starwander.amap.AMapNavigation"/> 
+      </feature>  
+      <preference name="iflytekappid" value="$IFLYTEKAPPID"/> 
+    </config-file>  
+    <config-file parent="/*" target="AndroidManifest.xml"> 
+      <uses-permission android:name="android.permission.INTERNET"/>  
+      <uses-permission android:name="android.permission.RECORD_AUDIO"/>  
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>  
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>  
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>  
+      <uses-permission android:name="android.permission.READ_CONTACTS"/>  
+      <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>  
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+      <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>  
+      <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>  
+      <uses-permission android:name="android.permission.WAKE_LOCK"/>  
+      <uses-permission android:name="android.permission.WRITE_SETTINGS"/>  
+      <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>  
+      <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/> 
+    </config-file>  
+    <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
+      <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROIDAMAPKEY"/> 
+    </config-file>  
+    <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
+      <activity android:name="com.github.starwander.amap.AmapActivity"/> 
+    </config-file>  
+    <source-file src="src/android/AMapNavi.java" target-dir="src/com/github/starwander/amap/AMapNavi"/>  
+    <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/AMapActivity"/>  
+    <source-file src="src/android/libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_20170410.jar" target-dir="libs"/>  
+    <source-file src="src/android/libs/Msc.jar" target-dir="libs"/>  
+    <source-file src="src/android/libs/Sunflower.jar" target-dir="libs"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviData.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviGuide.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviMap.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviMapex.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviPos.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviRoute.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviSearch.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libGNaviUtils.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libRoadLineRebuildAPI.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/librtbt800.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libwtbt800.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/arm64-v8a/libmsc.so" target-dir="libs/arm64-v8a"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviData.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviGuide.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviMap.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviMapex.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviPos.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviRoute.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviSearch.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libGNaviUtils.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libRoadLineRebuildAPI.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/librtbt800.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libwtbt800.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi/libmsc.so" target-dir="libs/armeabi"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviData.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviGuide.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviMap.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviMapex.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviPos.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviRoute.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviSearch.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libGNaviUtils.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libRoadLineRebuildAPI.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/librtbt800.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libwtbt800.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/armeabi-v7a/libmsc.so" target-dir="libs/armeabi-v7a"/>  
+    <source-file src="src/android/libs/x86/libGNaviData.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviGuide.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviMap.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviMapex.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviPos.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviRoute.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviSearch.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libGNaviUtils.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libRoadLineRebuildAPI.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/librtbt800.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libwtbt800.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86/libmsc.so" target-dir="libs/x86"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviData.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviGuide.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviMap.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviMapex.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviPos.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviRoute.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviSearch.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libGNaviUtils.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libRoadLineRebuildAPI.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/librtbt800.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libwtbt800.so" target-dir="libs/x86_64"/>  
+    <source-file src="src/android/libs/x86_64/libmsc.so" target-dir="libs/x86_64"/> 
+  </platform> 
+</plugin>
