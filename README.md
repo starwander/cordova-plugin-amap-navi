@@ -49,7 +49,7 @@ var errorCallback = function(message){
     console.log(message);  
 };
 
-cordova.plugins.AMapNavigation.navigation({
+AMapNavi.navigation({
    lng: 起始地的经度,
    lat: 起始地的纬度
 }, {
