@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-amap-navi" version="0.0.1">  
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-amap-navi" version="1.0.0">  
   <name>AMapNavi</name>  
   <description>Cordova AMap Navigation Plugin</description>  
   <author email="zhuangwj@gmail.com" href="https://github.com/starwander/cordova-plugin-amap-navi">Ethan Zhuang</author>  

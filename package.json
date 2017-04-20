@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-amap-navi",
+  "version": "1.0.0",
+  "description": "Cordova AMap Navigation Plugin",
+  "cordova": {
+    "id": "cordova-plugin-amap-navi",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starwander/cordova-plugin-amap-navi.git"
+  },
+  "keywords": [
+    "Cordova",
+    "Plugin",
+    "AMap",
+    "Navigation",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Ethan Zhuang",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/starwander/cordova-plugin-amap-navi/issues"
+  },
+  "homepage": "https://github.com/starwander/cordova-plugin-amap-navi#readme"
+}
