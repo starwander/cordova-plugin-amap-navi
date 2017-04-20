@@ -7,7 +7,7 @@
   <license>Apache 2.0</license>  
   <keywords>Cordova, Plugin, AMap, Navigation</keywords>  
   <js-module name="AMapNavi" src="www/AMapNavi.js"> 
-    <clobbers target="cordova.plugins.AMapNavi"/> 
+    <clobbers target="AMapNavi"/> 
   </js-module>  
   <preference name="ANDROIDAMAPKEY" default="pass"/>  
   <!--<preference name="IOSAMAPKEY" default="pass"/>  -->
@@ -31,8 +31,11 @@
   </platform>  -->
   <platform name="android"> 
     <config-file parent="/*" target="res/xml/config.xml"> 
-      <feature name="AMapNavi"> 
+      <feature name="AMapNavigation"> 
         <param name="android-package" value="com.github.starwander.amap.navigation.AMapNavigation"/> 
+      </feature>  
+      <feature name="AMapLoc"> 
+        <param name="android-package" value="com.github.starwander.amap.location.AMapLoc"/> 
       </feature>  
       <preference name="iflytekappid" value="$IFLYTEKAPPID"/> 
     </config-file>  
@@ -58,7 +61,7 @@
       <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROIDAMAPKEY"/> 
     </config-file>  
     <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
-      <activity android:name="com.github.starwander.amap.activity.AmapActivity"/> 
+      <activity android:name="com.github.starwander.amap.activity.AMapActivity"/> 
     </config-file>  
     <source-file src="src/android/AMapLoc.java" target-dir="src/com/github/starwander/amap/location"/>  
     <source-file src="src/android/AMapNavigation.java" target-dir="src/com/github/starwander/amap/navigation"/>  

@@ -26,22 +26,15 @@ public class AMapNavigation extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         cordovaWebView = webView;
         if (action.equals("navigation")) {
-            Log.i("result", "Navigation");
-            //String message = args.getString(0);
             mapNavigation = this;
             this.callbackContext = callbackContext;
             Intent intent = new Intent();
             intent.setClass(this.cordova.getActivity().getApplicationContext(), AMapActivity.class);
-            Log.i("result", args.getString(0));
-            Log.i("result", args.getString(1));
-            Log.i("result", args.getString(2));
-            Log.i("result", args.getString(3));
             intent.putExtra("NaviStartLng", args.getString(0));
             intent.putExtra("NaviStartLat", args.getString(1));
             intent.putExtra("NaviEndLng", args.getString(2));
             intent.putExtra("NaviEndLat", args.getString(3));
             intent.putExtra("NavType", args.getString(4));
-            Log.i("result", "cordova");
             this.cordova.startActivityForResult((CordovaPlugin) this, intent, 100);
             return true;
         }

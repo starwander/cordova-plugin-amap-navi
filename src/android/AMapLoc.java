@@ -1,6 +1,5 @@
 package com.github.starwander.amap.location;
 
-import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,9 +53,7 @@ public class AMapLoc extends CordovaPlugin {
     public class LocationWrapper implements AMapLocationListener {
         @Override
         public void onLocationChanged(AMapLocation amapLocation) {
-
             if (amapLocation != null && amapLocation.getErrorCode() == 0) {
-                // 获取位置信息
                 Double latitude = amapLocation.getLatitude();
                 Double longitude = amapLocation.getLongitude();
                 boolean hasAccuracy = amapLocation.hasAccuracy();
@@ -64,13 +61,9 @@ public class AMapLoc extends CordovaPlugin {
                 String address = amapLocation.getAddress();
                 String province = amapLocation.getProvince();
                 String road = amapLocation.getRoad();
-                // 速度
                 float speed = amapLocation.getSpeed();
-                // 角度
                 float bearing = amapLocation.getBearing();
-                // 星数
                 int satellites = amapLocation.getExtras().getInt("satellites", 0);
-                // 时间
                 long time = amapLocation.getTime();
 
                 JSONObject jo = new JSONObject();
@@ -100,20 +93,12 @@ public class AMapLoc extends CordovaPlugin {
         public void getLocation(Context context) {
             locationClient = new AMapLocationClient(context);
             locationOption = new AMapLocationClientOption();
-            /*			
-                低功耗   Battery_Saving
-                高精度   Hight_Accuracy
-                GPS     Device_Sensors
-            */
-            // 设置定位模式为高精度模式
+
             locationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);
-            // 设置定位监听
             locationClient.setLocationListener(this);
-            // 设置为单次定位
             locationOption.setOnceLocation(true);
-            // 设置定位参数
             locationClient.setLocationOption(locationOption);
-            // 启动定位
+
             locationClient.startLocation();
         }
     }
