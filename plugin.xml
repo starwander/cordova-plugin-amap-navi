@@ -60,8 +60,10 @@
     <config-file parent="/manifest/application" target="AndroidManifest.xml"> 
       <activity android:name="com.github.starwander.amap.activity.AmapActivity"/> 
     </config-file>  
+    <source-file src="src/android/AMapLoc.java" target-dir="src/com/github/starwander/amap/location"/>  
     <source-file src="src/android/AMapNavigation.java" target-dir="src/com/github/starwander/amap/navigation"/>  
-    <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/service"/>  
+    <source-file src="src/android/AMapActivity.java" target-dir="src/com/github/starwander/amap/activity"/>  
+    <source-file src="src/android/libs/AMap_Location_V3.3.0_20170118.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/AMap3DMap_5.0.0_AMapNavi_5.0.1_20170410.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/Msc.jar" target-dir="libs"/>  
     <source-file src="src/android/libs/arm64-v8a/libGNaviData.so" target-dir="libs/arm64-v8a"/>  

@@ -15,3 +15,7 @@ exports.navigation = function (startPoint, endPoint, NavType, successCallback, e
         exec(successCallback, errorCallback, "AMapNavigation", 'navigation', [startPoint.lng, startPoint.lat, endPoint.lng, endPoint.lat, NavType.toString()]);
     }
 };
+
+exports.getLocation = function (successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "AMapLoc", "getLocation", []);
+};
