@@ -1,15 +1,18 @@
-# cordova_plugin_amap_navigation
+# cordova_plugin_amap_navi
 使用[高德地图](http://lbs.amap.com/)sdk进行定位和导航的cordova plugin
+
 使用[科大讯飞](http://www.xfyun.cn/)sdk实现导航语音的合成和播报
+
 
 目前是实现了Android插件，后续会逐渐添加iOS和其它平台
 
 ## 安装插件
 androidamapkey: 高德地图android api key
+
 iflytekappid: 科大讯飞app id
 
 ```shell
-cordova plugin add https://github.com/starwander/cordova-plugin-amap-navi --variable androidamapkey=1234 --variable iflytekappid=5678 --variable iosamapkey=7890
+cordova plugin add https://github.com/starwander/cordova-plugin-amap-navi --variable androidamapkey=123 --variable iflytekappid=456
 ```
 
 ## 使用插件
